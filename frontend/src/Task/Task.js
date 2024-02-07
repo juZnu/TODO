@@ -71,8 +71,8 @@ export default function Task({task}) {
           <div className={`task-container ${getPriorityClassName()}`}>
             <div className="task-details">
               <div className="task-content">
-                <h3 className={`task-title ${getPriorityClassName()}`}>{task.task}</h3>
-                <p className={`task-description ${getPriorityClassName()}`}>{task.taskDescription}</p>
+                <h3 className={`task-title ${getPriorityClassName()}`}>{task.task.length > 35 ? task.task.substring(0, 32) + '...' : task.task}</h3>
+                <p className={`task-description ${getPriorityClassName()}`}>{task.taskDescription.length > 35 ? task.taskDescription.substring(0, 32) + '...' : task.taskDescription}</p>
               </div>
               <div className="task-buttons">
                 <button onClick={onClickDone}>
