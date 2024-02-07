@@ -10,7 +10,10 @@ export default function () {
   useEffect(() => fetchTasks(),[])
   return (
     <div>
-        {Object.keys(tasks).sort((a,b) => a.taskPriority - b.taskPriority).map(
+        {Object.keys(tasks).sort((a,b) => {
+          const timeComparison = new Date(b.scheaduleDateTime) - new Date(a.scheaduleDateTime);
+          return (timeComparison !== 0)? timeComparison: a.taskPriority - b.taskPriority;
+        }).map(
             key => <Task key ={key} task = {tasks[key]} />
         )}
     </div>
