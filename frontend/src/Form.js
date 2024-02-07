@@ -10,7 +10,9 @@ export default function Form({onSubmitHandler,task,edit,setEditOn}) {
   useEffect(() => {
     // Set date and time if task is provided
     if (task) {
-      const [date_, time_] = task['scheaduleDateTime'].split('T');
+      const currentDate = new Date();
+      const date_ = currentDate.toLocaleDateString(); // Get date in local time zone
+      const time_ = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Get time in local time zone
       setDate(date_);
       setTime(time_);
     } else {
@@ -45,6 +47,18 @@ export default function Form({onSubmitHandler,task,edit,setEditOn}) {
     return (
     <div className="form-container" style={{ backgroundColor: formColor }}>
       <form onSubmit={onSubmitHandler}>
+        <div className="actions-row">
+          {edit ? (
+            <>
+              <button onClick={onClickHandler}>
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
+                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                </svg>
+              </button>
+            </>
+          ) : ''}
+        </div>
         <div className="form-row">
           <div className="input-group">
             <label htmlFor='input-task'>Task</label>
@@ -85,18 +99,7 @@ export default function Form({onSubmitHandler,task,edit,setEditOn}) {
           <label htmlFor='input-description'>Description</label>
           <textarea id="input-description" name="taskDescription" defaultValue={edit ? task.taskDescription : ''}></textarea>
         </div>
-        <div className="actions-row">
-          {edit ? (
-            <>
-              <button onClick={onClickHandler}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
-                  <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
-                  <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
-                </svg>
-              </button>
-            </>
-          ) : ''}
-        </div>
+        
       </form>
     </div>
   )
