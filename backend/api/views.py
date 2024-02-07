@@ -13,7 +13,7 @@ def todayTasks(request):
     start_of_day = datetime.combine(today_date, datetime.min.time())
     end_of_day = datetime.combine(today_date, datetime.max.time())
     todayTasks = Todo.objects.filter(
-        Q(dateTimeCreated__gte =start_of_day) & Q(dateTimeCreated__lte = end_of_day))
+        Q(dateTimeCreated__gte =start_of_day) & Q(dateTimeCreated__lte = end_of_day) &Q(taskDone = False))
     todayTasksSerializer = TodoSerializer(todayTasks, many = True)
     data  = { ele['id']:ele for ele in todayTasksSerializer.data}
     return Response(data)

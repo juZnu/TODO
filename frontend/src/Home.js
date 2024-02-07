@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import axios from 'axios'
 import { backend } from './Variables';
+import { MyContext } from './Context/MyContext';
+import Form from './Form';
+
 export default function Home() {
+  const {fetchTasks} = useContext(MyContext);
   const onSubmitHandling = (event) =>{
     event.preventDefault();
     const data = new FormData(event.target)
@@ -19,33 +23,21 @@ export default function Home() {
       else{
         formObject[key] = value;
       }
+      
     });
+
     formObject.taskDone = false
+
     axios.post(backend+'add_task/',formObject)
-      .then(response => console.log(response))
+      .then(() => fetchTasks())
       .catch(
         error => console.log(error,JSON.stringify(formObject))
       )
+
   }
   return (
     <div>
-      <form onSubmit={onSubmitHandling}>
-        <label htmlFor='input-task'>Task</label>
-        <input type='text' id='input-task' name ='task' />
-        <label htmlFor='input-description'>Description</label>
-        <textarea id="input-description" name="taskDescription"></textarea>
-        <label htmlFor='input-date'>Scheaduled Date</label>
-        <input type='date' id='input-date' name ='scheaduledDate' />
-        <label htmlFor='input-time'>time</label>
-        <input type='time' id='input-time' name ='time' />
-        <label htmlFor='input-priority'>Priority</label>
-        <select name='taskPriority' id ='input-priority'>
-          <option value='1'>High</option>
-          <option value='2'>Normal</option>
-          <option value='3'>Low</option>
-        </select>
-        <input type='submit' value='add'/>
-      </form>
+     <Form onSubmitHandler={onSubmitHandling} editOn={false}/>
     </div>
   )
 }

@@ -5,7 +5,7 @@ from .models import Todo
 class TodoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Todo
-        fields = ['id','task','taskDescription','scheaduleDateTime','taskPriority']
+        fields = ['id','task','taskDescription','scheaduleDateTime','taskDone','taskPriority']
         
         
     def update(self, instance, validated_data):

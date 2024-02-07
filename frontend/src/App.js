@@ -1,12 +1,15 @@
 import './App.css';
 import Home from './Home';
 import TodayTasks from './TodayTasks';
+import {MyProvider} from './Context/MyProvider'
 function App() {
   return (
-    <div >
-    <Home />
-    <TodayTasks />
-    </div>
+    <MyProvider>
+      <div >
+        <Home />
+        <TodayTasks />
+      </div>
+    </MyProvider>
   );
 }
 
