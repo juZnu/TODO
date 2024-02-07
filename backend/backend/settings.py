@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    # Django built-in apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -38,21 +39,27 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     
-    "rest_framework",
-    "database",
-    "api",
-    'corsheaders',
+    # Third-party apps
+    "rest_framework",  # Django REST framework
+    "corsheaders",  # Django CORS headers
+    
+    # Local apps
+    "database",  # Your database app
+    "api",  # Your API app
 ]
 
 MIDDLEWARE = [
+    # Django built-in middleware
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
-    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    
+    # Third-party middleware
+    "corsheaders.middleware.CorsMiddleware",  # CORS middleware
 ]
 
 
@@ -104,13 +111,12 @@ WSGI_APPLICATION = "backend.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        'NAME': 'TODO',
-        'USER': 'Jishnu',
-        'PASSWORD': 'D0uble t@p',
-        'HOST': 'localhost',  # Or the database server host
-        'PORT': '',   
-        
+        "ENGINE": "django.db.backends.postgresql",  # Database engine
+        'NAME': 'TODO',  # Database name
+        'USER': 'Jishnu',  # Database username
+        'PASSWORD': 'D0uble t@p',  # Database password
+        'HOST': 'localhost',  # Database host
+        'PORT': '',  # Database port
     }
 }
 

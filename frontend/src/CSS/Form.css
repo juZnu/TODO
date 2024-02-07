@@ -1,3 +1,4 @@
+/* Styles for the form container */
 .form-container {
     display: flex;
     flex-direction: column;
@@ -9,6 +10,7 @@
     margin: 20px auto;
 }
 
+/* Styles for form rows */
 .form-row,
 .textarea-row,
 .actions-row {
@@ -16,6 +18,7 @@
     margin-bottom: 20px;
 }
 
+/* Styles for textarea row */
 .textarea-row textarea {
     flex-grow: 1;
     border: 2px solid #ccd6dd;
@@ -23,10 +26,12 @@
     padding: 10px;
 }
 
+/* Styles for actions row */
 .actions-row {
     justify-content: flex-end;
 }
 
+/* Styles for input groups */
 .input-group {
     display: flex;
     flex-direction: column;
@@ -44,6 +49,7 @@
     padding: 8px;
 }
 
+/* Styles for input focus */
 .input-group input:focus,
 .input-group select:focus,
 .textarea-row textarea:focus {
@@ -51,11 +57,10 @@
     outline: none;
 }
 
-button
- {
+/* General button styles */
+button {
     cursor: pointer;
-    background-color:transparent;
-    /* color: white; */
+    background-color: transparent;
     border: none;
     border-radius: 4px;
     padding: 10px 15px;
@@ -63,11 +68,13 @@ button
     transition: background-color 0.3s ease;
 }
 
+/* Button hover effect */
 button:hover,
 input[type="submit"]:hover {
     background-color: transparent;
 }
+
+/* SVG icon styles */
 button svg {
     vertical-align: middle;
-    
 }

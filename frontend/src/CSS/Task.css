@@ -1,9 +1,11 @@
+/* Styles for tasks container */
 .tasks-container {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+/* Styles for task container */
 .task-container {
     width: 100%;
     width: 600px;
@@ -14,18 +16,22 @@
     overflow: hidden;
     /* Add overflow: hidden to contain floating children */
 }
+
 .task-container:not(:first-child) {
     height: auto;
     /* Set height to auto when not the first child */
 }
 
+/* Styles for task details */
 .task-details {
     display: flex;
     justify-content: space-between;
     /* Align task details and buttons */
     align-items: center;
+    /* Align items to the center */
     width: 100%;
 }
+
 .task-content {
     flex-grow: 1;
     display: flex;
@@ -35,6 +41,7 @@
     /* Align items to the start (top) */
 }
 
+/* Styles for task title and description */
 .task-title,
 .task-description {
     font-size: 16px;
@@ -43,6 +50,7 @@
     /* Remove default margin */
 }
 
+/* Styles for task buttons */
 .task-buttons {
     display: flex;
     align-items: center;
@@ -65,6 +73,7 @@
     background-color: #ccffcc;
 }
 
+/* Priority-based text color for task title */
 .task-priority-high .task-title {
     color: #e74c3c;
 }
@@ -77,6 +86,7 @@
     color: #2ecc71;
 }
 
+/* Priority-based text color for task description */
 .task-priority-high .task-description {
     color: #e74c3c;
 }

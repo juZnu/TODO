@@ -4,13 +4,16 @@ import React, { useContext, useEffect } from 'react';
 import Task from './Task/Task';
 import { MyContext } from './Context/MyContext';
 
-export default function () {
+// Component responsible for displaying tasks
+export default function TaskList() {
   const { tasks, fetchTasks } = useContext(MyContext);
 
+  // Fetch tasks on component mount
   useEffect(() => {
     fetchTasks();
-  }, []); // Fetch tasks only once on component mount
+  }, []);
 
+  // Function to compare tasks for sorting
   const compareTasks = (a, b) => {
     // Convert scheduled date strings to Date objects
     const dateA = new Date(a.scheaduleDateTime);
@@ -26,6 +29,7 @@ export default function () {
 
   return (
     <div>
+      {/* Displaying tasks sorted by schedule date and priority */}
       {Object.values(tasks).sort(compareTasks).map((task, index) => (
         <Task key={index} task={task} />
       ))}
