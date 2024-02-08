@@ -1,6 +1,6 @@
 # Todo List App
 
-![Todo List App Screenshot](images/todo-app-screenshot.png)
+![Todo List App Screenshot](images/todo-app.png)
 
 ## Introduction
 
