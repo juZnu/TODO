@@ -23,6 +23,7 @@ export default function Task({ task }) {
   const onSubmitHandler = (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
+    
     form.forEach((value, key) => {
       if (key === 'taskPriority') {
         task[key] = parseInt(value);
@@ -33,6 +34,7 @@ export default function Task({ task }) {
       } else {
         task[key] = value;
       }
+      
     });
     const { id, ...formObject } = task;
     updateTask(id, formObject, true);

@@ -20,9 +20,3 @@ class TodoSerializer(serializers.ModelSerializer):
         instance.save()  # Save the updated instance
         return instance  # Return the updated instance
 
-    # Override the create method to create a new Todo instance
-    def create(self, validated_data):
-        # Check if 'taskDescription' is not provided in the validated data
-        if 'taskDescription' not in validated_data:
-            validated_data['taskDescription'] = ''  # Set 'taskDescription' to an empty string
-        return super().create(validated_data)  # Call the superclass create method to create the instance
