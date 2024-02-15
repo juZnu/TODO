@@ -109,14 +109,16 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+import os
+
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",  # Database engine
-        'NAME': 'TODO',  # Database name
-        'USER': 'Jishnu',  # Database username
-        'PASSWORD': 'D0uble t@p',  # Database password
-        'HOST': 'localhost',  # Database host
-        'PORT': '',  # Database port
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',  # Matches the service name in docker-compose.yml
+        'PORT': '5432',
     }
 }
 
