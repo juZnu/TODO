@@ -23,6 +23,9 @@ Welcome to our Todo List App! This simple yet powerful application helps you man
 
 ## Installation
 
+### Prerequisites
+- Docker and Docker Compose installed on your system.
+
 1. Clone the repository:
 
     ```
@@ -32,25 +35,25 @@ Welcome to our Todo List App! This simple yet powerful application helps you man
 2. Navigate to the project directory:
 
     ```
-    cd todo-list-app
+    cd TODO
     ```
 
-3. Install dependencies:
+3. Start Docker Compose:
 
     ```
-    npm install
+    docker-compose up
     ```
 
-4. Start the development server:
+4. Once Docker Compose has finished setting up the containers, you can access the Todo List App in your web browser at `http://localhost:8080`.
 
-    ```
-    npm start
-    ```
+### Additional Notes:
 
-## Usage
+- The `docker-compose.yml` file provided in the repository sets up containers for the frontend, backend, and database services required to run the Todo List App.
 
-1. Access the app through your web browser.
-2. Add tasks by filling out the task details in the form provided.
-3. View today's tasks on the homepage.
-4. Mark tasks as done by clicking the checkbox next to each task.
-5. Edit or delete tasks using the respective buttons.
+- The frontend service uses React.js and is served by an Nginx server.
+  
+- The backend service uses Django and Django REST Framework, with a PostgreSQL database.
+
+- Ensure that Docker and Docker Compose are properly installed and configured on your system before running the above commands.
+
+- If you encounter any issues during the installation process, please refer to the project's documentation or raise an issue on the GitHub repository for assistance.
